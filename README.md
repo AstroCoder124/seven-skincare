@@ -3,7 +3,7 @@
 Loja virtual completa para marca de cosméticos botânicos com foco em conversão.
 
 ## 🔗 Demo ao vivo
-[Ver projeto](LINK_DO_VERCEL_AQUI)
+https://seven-skincare.vercel.app/
 
 ## ✦ Destaques
 - Carrinho funcional com atualização em tempo real
