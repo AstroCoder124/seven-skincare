@@ -1,0 +1,829 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sève Botânica | Skincare de Alta Performance</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+:root{
+  --white:#FAFAF7;
+  --forest:#1B2B1D;
+  --sage:#7A9E7E;
+  --blush:#F0D5C8;
+  --sand:#E8E0D4;
+  --muted:#8A8078;
+  --dark:#111410;
+}
+html{scroll-behavior:smooth;}
+body{font-family:'Jost',sans-serif;background:var(--white);color:var(--forest);overflow-x:hidden;}
+
+/* ANNOUNCEMENT */
+.announce{
+  background:var(--forest);color:var(--white);
+  text-align:center;padding:10px;
+  font-size:11px;letter-spacing:2.5px;text-transform:uppercase;
+}
+.announce span{color:var(--blush);}
+
+/* NAV */
+nav{
+  position:sticky;top:0;z-index:100;
+  background:rgba(250,250,247,0.95);
+  backdrop-filter:blur(12px);
+  border-bottom:1px solid rgba(27,43,29,0.1);
+  padding:0 60px;
+  display:flex;align-items:center;justify-content:space-between;
+  height:72px;
+}
+.logo{
+  font-family:'Playfair Display',serif;
+  font-size:22px;letter-spacing:2px;color:var(--forest);
+  text-decoration:none;
+}
+.logo span{font-style:italic;color:var(--sage);}
+.nav-links{display:flex;gap:36px;list-style:none;}
+.nav-links a{
+  font-size:12px;letter-spacing:2px;text-transform:uppercase;
+  color:var(--muted);text-decoration:none;transition:color .3s;
+}
+.nav-links a:hover{color:var(--forest);}
+.nav-right{display:flex;align-items:center;gap:24px;}
+.nav-icon{
+  background:none;border:none;cursor:pointer;
+  font-size:18px;color:var(--forest);position:relative;
+}
+.cart-badge{
+  position:absolute;top:-6px;right:-6px;
+  background:var(--forest);color:var(--white);
+  width:16px;height:16px;border-radius:50%;
+  font-size:9px;display:flex;align-items:center;justify-content:center;
+  font-family:'Jost',sans-serif;
+}
+.nav-btn{
+  background:var(--forest);color:var(--white);
+  border:none;padding:10px 24px;
+  font-size:11px;letter-spacing:2px;text-transform:uppercase;
+  cursor:pointer;font-family:'Jost',sans-serif;
+  transition:background .3s;
+}
+.nav-btn:hover{background:var(--sage);}
+
+/* HERO */
+.hero{
+  display:grid;grid-template-columns:1fr 1fr;
+  min-height:calc(100vh - 108px);
+  overflow:hidden;
+}
+.hero-left{
+  background:var(--sand);
+  position:relative;overflow:hidden;
+  display:flex;align-items:flex-end;
+  padding:60px;
+}
+.hero-img-area{
+  position:absolute;inset:0;
+  background:linear-gradient(160deg,#d4e0d0 0%,#b8cfb8 40%,#8faf8f 100%);
+  display:flex;align-items:center;justify-content:center;
+}
+.hero-product-visual{
+  width:220px;height:340px;
+  background:linear-gradient(170deg,rgba(250,250,247,0.9),rgba(250,250,247,0.5));
+  border-radius:120px;
+  display:flex;align-items:center;justify-content:center;
+  flex-direction:column;gap:8px;
+  box-shadow:0 40px 80px rgba(27,43,29,0.2);
+  backdrop-filter:blur(10px);
+  border:1px solid rgba(250,250,247,0.6);
+  position:relative;
+}
+.hero-product-visual::before{
+  content:'';position:absolute;inset:-2px;
+  border-radius:122px;
+  border:1px solid rgba(250,250,247,0.3);
+}
+.product-label-visual{
+  font-family:'Playfair Display',serif;
+  font-size:14px;color:var(--forest);text-align:center;font-style:italic;
+}
+.product-sub-visual{font-size:9px;letter-spacing:3px;color:var(--sage);text-transform:uppercase;}
+
+.hero-badge-left{
+  position:relative;z-index:2;
+  background:var(--white);
+  padding:20px 28px;
+  border-radius:2px;
+}
+.badge-l-tag{font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--muted);margin-bottom:6px;}
+.badge-l-text{font-family:'Playfair Display',serif;font-size:18px;color:var(--forest);}
+
+.hero-right{
+  padding:80px 80px 80px 60px;
+  display:flex;flex-direction:column;justify-content:center;
+  background:var(--white);
+}
+.hero-tag-r{
+  display:inline-flex;align-items:center;gap:10px;
+  font-size:10px;letter-spacing:4px;text-transform:uppercase;color:var(--sage);
+  margin-bottom:28px;
+}
+.hero-tag-r::before{content:'';width:30px;height:1px;background:var(--sage);}
+.hero-title{
+  font-family:'Playfair Display',serif;
+  font-size:clamp(42px,5vw,68px);
+  font-weight:400;line-height:1.1;color:var(--forest);
+  margin-bottom:24px;
+}
+.hero-title em{font-style:italic;color:var(--sage);}
+.hero-desc{
+  font-size:15px;line-height:1.9;color:var(--muted);
+  max-width:420px;margin-bottom:44px;font-weight:300;
+}
+.hero-actions{display:flex;gap:16px;align-items:center;flex-wrap:wrap;}
+.btn-dark{
+  background:var(--forest);color:var(--white);
+  padding:16px 36px;font-size:11px;letter-spacing:3px;text-transform:uppercase;
+  border:none;cursor:pointer;font-family:'Jost',sans-serif;font-weight:500;
+  transition:all .3s;text-decoration:none;display:inline-block;
+}
+.btn-dark:hover{background:var(--sage);}
+.btn-outline{
+  background:transparent;color:var(--forest);
+  padding:15px 36px;font-size:11px;letter-spacing:3px;text-transform:uppercase;
+  border:1px solid var(--forest);cursor:pointer;font-family:'Jost',sans-serif;
+  transition:all .3s;text-decoration:none;display:inline-block;
+}
+.btn-outline:hover{background:var(--forest);color:var(--white);}
+.hero-trust{
+  display:flex;gap:36px;margin-top:52px;
+  padding-top:36px;border-top:1px solid var(--sand);
+}
+.trust-item{display:flex;align-items:center;gap:10px;}
+.trust-icon{font-size:18px;}
+.trust-text{font-size:11px;letter-spacing:1px;color:var(--muted);}
+
+/* MARQUEE */
+.marquee-wrap{
+  background:var(--forest);padding:16px 0;
+  overflow:hidden;white-space:nowrap;
+}
+.marquee-track{
+  display:inline-flex;gap:0;
+  animation:marquee 25s linear infinite;
+}
+.marquee-item{
+  font-size:10px;letter-spacing:4px;text-transform:uppercase;
+  color:rgba(250,250,247,0.5);padding:0 40px;
+  border-right:1px solid rgba(250,250,247,0.15);
+}
+.marquee-item.accent{color:var(--blush);}
+@keyframes marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+/* PRODUCTS */
+.products{padding:100px 60px;}
+.section-header{
+  display:flex;justify-content:space-between;align-items:flex-end;
+  margin-bottom:60px;
+}
+.section-tag{
+  font-size:10px;letter-spacing:4px;text-transform:uppercase;
+  color:var(--sage);display:flex;align-items:center;gap:10px;margin-bottom:12px;
+}
+.section-tag::before{content:'';width:28px;height:1px;background:var(--sage);}
+.section-title{
+  font-family:'Playfair Display',serif;
+  font-size:clamp(32px,4vw,50px);font-weight:400;
+  color:var(--forest);line-height:1.15;
+}
+.section-title em{font-style:italic;color:var(--sage);}
+.see-all{
+  font-size:11px;letter-spacing:2px;text-transform:uppercase;
+  color:var(--forest);text-decoration:none;
+  display:flex;align-items:center;gap:8px;
+  border-bottom:1px solid var(--forest);padding-bottom:2px;
+  transition:color .3s,border-color .3s;
+}
+.see-all:hover{color:var(--sage);border-color:var(--sage);}
+
+.products-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;}
+
+.product-card{position:relative;cursor:pointer;}
+.product-img{
+  aspect-ratio:3/4;
+  background:var(--sand);
+  position:relative;overflow:hidden;
+  margin-bottom:20px;
+}
+.product-img-inner{
+  width:100%;height:100%;
+  display:flex;align-items:center;justify-content:center;
+  flex-direction:column;gap:8px;
+  transition:transform .5s ease;
+}
+.product-card:hover .product-img-inner{transform:scale(1.03);}
+.product-bottle{
+  width:80px;height:140px;
+  border-radius:40px;
+  display:flex;align-items:center;justify-content:center;
+  font-family:'Playfair Display',serif;font-size:11px;
+  font-style:italic;text-align:center;line-height:1.4;
+  border:1px solid rgba(27,43,29,0.2);
+  transition:transform .4s;
+}
+.product-card:hover .product-bottle{transform:translateY(-6px);}
+.p1{background:linear-gradient(170deg,#c8dfc8,#8faf8f);color:var(--forest);}
+.p2{background:linear-gradient(170deg,#f0d5c8,#e0b8a0);color:var(--forest);}
+.p3{background:linear-gradient(170deg,#d8e8f0,#a0c0d8);color:var(--forest);}
+.p4{background:linear-gradient(170deg,#ede0cc,#d4c0a0);color:var(--forest);}
+
+.product-tag{
+  position:absolute;top:16px;left:16px;
+  background:var(--forest);color:var(--white);
+  font-size:9px;letter-spacing:2px;text-transform:uppercase;
+  padding:5px 12px;
+}
+.product-tag.new{background:var(--sage);}
+.product-tag.sale{background:#c0392b;}
+
+.product-wishlist{
+  position:absolute;top:16px;right:16px;
+  background:var(--white);width:36px;height:36px;
+  border-radius:50%;display:flex;align-items:center;justify-content:center;
+  font-size:16px;opacity:0;transform:translateY(-4px);
+  transition:opacity .3s,transform .3s;cursor:pointer;border:none;
+}
+.product-card:hover .product-wishlist{opacity:1;transform:translateY(0);}
+
+.product-add{
+  position:absolute;bottom:0;left:0;right:0;
+  background:var(--forest);color:var(--white);
+  border:none;padding:14px;font-size:10px;letter-spacing:2px;
+  text-transform:uppercase;cursor:pointer;font-family:'Jost',sans-serif;
+  transform:translateY(100%);transition:transform .35s ease;
+}
+.product-card:hover .product-add{transform:translateY(0);}
+
+.product-brand{font-size:10px;letter-spacing:2px;color:var(--muted);text-transform:uppercase;margin-bottom:6px;}
+.product-name{
+  font-family:'Playfair Display',serif;font-size:18px;
+  color:var(--forest);margin-bottom:8px;
+}
+.product-desc{font-size:12px;color:var(--muted);line-height:1.6;margin-bottom:12px;font-weight:300;}
+.product-footer{display:flex;align-items:center;justify-content:space-between;}
+.product-price{font-size:16px;font-weight:500;color:var(--forest);}
+.product-price .old{font-size:12px;color:var(--muted);text-decoration:line-through;margin-right:8px;}
+.product-stars{font-size:11px;color:var(--sage);}
+
+/* RITUAL */
+.ritual{
+  display:grid;grid-template-columns:1fr 1fr;
+  min-height:600px;
+}
+.ritual-visual{
+  background:linear-gradient(135deg,#2d4a30 0%,#1b2b1d 100%);
+  position:relative;overflow:hidden;
+  display:flex;align-items:center;justify-content:center;
+}
+.ritual-visual::before{
+  content:'';position:absolute;inset:0;
+  background:url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%237A9E7E' fill-opacity='0.06'%3E%3Ccircle cx='40' cy='40' r='30'/%3E%3C/g%3E%3C/svg%3E");
+}
+.ritual-circle{
+  width:300px;height:300px;border-radius:50%;
+  border:1px solid rgba(122,158,126,0.3);
+  display:flex;align-items:center;justify-content:center;
+  position:relative;
+}
+.ritual-circle::before{
+  content:'';position:absolute;inset:20px;
+  border-radius:50%;border:1px solid rgba(122,158,126,0.2);
+}
+.ritual-circle-text{
+  font-family:'Playfair Display',serif;
+  font-size:32px;font-style:italic;color:var(--white);text-align:center;
+  line-height:1.3;
+}
+.ritual-circle-text span{display:block;font-size:12px;letter-spacing:4px;font-style:normal;color:var(--sage);margin-top:8px;font-family:'Jost',sans-serif;}
+
+.ritual-content{
+  padding:80px;background:var(--sand);
+  display:flex;flex-direction:column;justify-content:center;
+}
+.ritual-steps{display:flex;flex-direction:column;gap:36px;margin-top:40px;}
+.ritual-step{display:flex;gap:24px;align-items:flex-start;}
+.step-num{
+  font-family:'Playfair Display',serif;
+  font-size:36px;font-weight:400;color:rgba(27,43,29,0.15);
+  line-height:1;flex-shrink:0;width:48px;
+}
+.step-title{font-size:14px;font-weight:600;color:var(--forest);margin-bottom:6px;letter-spacing:.5px;}
+.step-desc{font-size:13px;color:var(--muted);line-height:1.7;font-weight:300;}
+
+/* INGREDIENTS */
+.ingredients{padding:100px 60px;background:var(--white);}
+.ing-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:var(--sand);margin-top:60px;}
+.ing-card{
+  background:var(--white);padding:48px 40px;
+  transition:background .3s;position:relative;overflow:hidden;
+}
+.ing-card:hover{background:var(--forest);}
+.ing-card:hover .ing-name,.ing-card:hover .ing-desc{color:var(--white);}
+.ing-card:hover .ing-icon{filter:grayscale(0) brightness(2);}
+.ing-icon{font-size:36px;margin-bottom:20px;transition:filter .3s;}
+.ing-name{
+  font-family:'Playfair Display',serif;font-size:22px;
+  color:var(--forest);margin-bottom:12px;transition:color .3s;
+}
+.ing-desc{font-size:13px;color:var(--muted);line-height:1.8;font-weight:300;transition:color .3s;}
+
+/* REVIEWS */
+.reviews{padding:100px 60px;background:var(--sand);}
+.reviews-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:60px;}
+.review-card{background:var(--white);padding:40px 32px;}
+.review-stars{color:var(--sage);font-size:13px;margin-bottom:16px;}
+.review-text{
+  font-family:'Playfair Display',serif;font-size:16px;
+  color:var(--forest);line-height:1.7;font-style:italic;margin-bottom:24px;
+}
+.review-author{display:flex;align-items:center;gap:14px;}
+.author-av{
+  width:40px;height:40px;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  font-family:'Playfair Display',serif;font-size:16px;color:var(--white);
+}
+.av1{background:var(--sage);}
+.av2{background:var(--forest);}
+.av3{background:#8a9a80;}
+.author-name-r{font-size:13px;font-weight:500;color:var(--forest);}
+.author-prod{font-size:11px;color:var(--muted);}
+.review-verified{font-size:10px;letter-spacing:1.5px;color:var(--sage);text-transform:uppercase;margin-top:4px;}
+
+/* NEWSLETTER */
+.newsletter{
+  background:var(--forest);padding:100px 60px;
+  display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;
+}
+.nl-left .section-tag::before{background:var(--blush);}
+.nl-left .section-tag{color:var(--blush);}
+.nl-title{
+  font-family:'Playfair Display',serif;font-size:clamp(36px,4vw,52px);
+  color:var(--white);line-height:1.15;margin-top:12px;
+}
+.nl-title em{font-style:italic;color:var(--blush);}
+.nl-desc{font-size:14px;color:rgba(250,250,247,0.6);line-height:1.8;margin-top:20px;font-weight:300;}
+.nl-form{display:flex;flex-direction:column;gap:16px;}
+.nl-input{
+  background:rgba(250,250,247,0.08);border:1px solid rgba(250,250,247,0.2);
+  color:var(--white);padding:16px 20px;font-size:13px;font-family:'Jost',sans-serif;
+  outline:none;transition:border-color .3s;
+}
+.nl-input::placeholder{color:rgba(250,250,247,0.4);}
+.nl-input:focus{border-color:var(--blush);}
+.nl-btn{
+  background:var(--blush);color:var(--forest);
+  border:none;padding:16px;font-size:11px;letter-spacing:3px;
+  text-transform:uppercase;cursor:pointer;font-family:'Jost',sans-serif;font-weight:600;
+  transition:all .3s;
+}
+.nl-btn:hover{background:var(--white);}
+.nl-disclaimer{font-size:10px;color:rgba(250,250,247,0.3);letter-spacing:.5px;}
+.nl-perks{display:flex;flex-direction:column;gap:12px;margin-top:32px;}
+.perk{display:flex;align-items:center;gap:12px;font-size:12px;color:rgba(250,250,247,0.5);}
+.perk::before{content:'✓';color:var(--blush);font-weight:600;}
+
+/* FOOTER */
+footer{background:var(--dark);padding:60px;color:rgba(250,250,247,0.6);}
+.footer-top{
+  display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:60px;
+  padding-bottom:48px;border-bottom:1px solid rgba(250,250,247,0.08);
+  margin-bottom:36px;
+}
+.footer-brand .logo{font-size:20px;display:block;margin-bottom:16px;}
+.footer-brand p{font-size:12px;line-height:1.8;max-width:280px;}
+.footer-col h4{font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--white);margin-bottom:20px;}
+.footer-col ul{list-style:none;display:flex;flex-direction:column;gap:10px;}
+.footer-col a{font-size:12px;color:rgba(250,250,247,0.5);text-decoration:none;transition:color .3s;}
+.footer-col a:hover{color:var(--blush);}
+.footer-bottom{display:flex;justify-content:space-between;align-items:center;}
+.footer-copy{font-size:10px;letter-spacing:1px;}
+.footer-pay{display:flex;gap:10px;font-size:10px;letter-spacing:1px;}
+
+/* ANIMATIONS */
+.fade-up{opacity:0;transform:translateY(30px);transition:opacity .7s ease,transform .7s ease;}
+.fade-up.visible{opacity:1;transform:translateY(0);}
+.fade-up:nth-child(2){transition-delay:.1s;}
+.fade-up:nth-child(3){transition-delay:.2s;}
+.fade-up:nth-child(4){transition-delay:.3s;}
+
+/* MOBILE */
+@media(max-width:900px){
+  nav{padding:0 24px;}
+  .nav-links{display:none;}
+  .hero{grid-template-columns:1fr;}
+  .hero-left{min-height:50vh;}
+  .hero-right{padding:48px 24px;}
+  .products{padding:60px 24px;}
+  .products-grid{grid-template-columns:repeat(2,1fr);gap:16px;}
+  .ritual{grid-template-columns:1fr;}
+  .ritual-content{padding:48px 24px;}
+  .ingredients{padding:60px 24px;}
+  .ing-grid{grid-template-columns:1fr;}
+  .reviews{padding:60px 24px;}
+  .reviews-grid{grid-template-columns:1fr;}
+  .newsletter{grid-template-columns:1fr;padding:60px 24px;gap:40px;}
+  footer{padding:40px 24px;}
+  .footer-top{grid-template-columns:1fr 1fr;gap:32px;}
+}
+</style>
+</head>
+<body>
+
+<!-- ANNOUNCE -->
+<div class="announce">
+  Frete grátis em compras acima de R$199 · <span>Use SEVE15 para 15% off na primeira compra</span>
+</div>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="logo">Sève <span>Botânica</span></a>
+  <ul class="nav-links">
+    <li><a href="#produtos">Produtos</a></li>
+    <li><a href="#ritual">Ritual</a></li>
+    <li><a href="#ingredientes">Ingredientes</a></li>
+    <li><a href="#reviews">Reviews</a></li>
+  </ul>
+  <div class="nav-right">
+    <button class="nav-icon">🔍</button>
+    <button class="nav-icon">
+      ♡
+    </button>
+    <button class="nav-icon">
+      🛍
+      <span class="cart-badge">3</span>
+    </button>
+    <button class="nav-btn">Login</button>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-left">
+    <div class="hero-img-area">
+      <div class="hero-product-visual">
+        <div class="product-label-visual">Sérum<br>Botânico</div>
+        <div class="product-sub-visual">30ml · SPF 30</div>
+      </div>
+    </div>
+    <div class="hero-badge-left">
+      <div class="badge-l-tag">Produto do mês</div>
+      <div class="badge-l-text">Sérum Vitamina C<br>+ Ácido Hialurônico</div>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="hero-tag-r">Nova Coleção · Inverno 2025</div>
+    <h1 class="hero-title">
+      Sua pele,<br>
+      no seu <em>estado</em><br>
+      mais puro.
+    </h1>
+    <p class="hero-desc">
+      Formulados com ingredientes botânicos de origem controlada. Skincare que respeita a biologia da sua pele e entrega resultados que você vê.
+    </p>
+    <div class="hero-actions">
+      <a href="#produtos" class="btn-dark">Explorar Produtos</a>
+      <a href="#ritual" class="btn-outline">Conheça o Ritual</a>
+    </div>
+    <div class="hero-trust">
+      <div class="trust-item">
+        <span class="trust-icon">🌿</span>
+        <span class="trust-text">100% Natural</span>
+      </div>
+      <div class="trust-item">
+        <span class="trust-icon">🐰</span>
+        <span class="trust-text">Cruelty Free</span>
+      </div>
+      <div class="trust-item">
+        <span class="trust-icon">✓</span>
+        <span class="trust-text">Dermatologicamente testado</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MARQUEE -->
+<div class="marquee-wrap">
+  <div class="marquee-track">
+    <span class="marquee-item accent">Skincare Botânico</span>
+    <span class="marquee-item">Ingredientes Naturais</span>
+    <span class="marquee-item accent">Cruelty Free</span>
+    <span class="marquee-item">Dermatologicamente Testado</span>
+    <span class="marquee-item accent">Alta Performance</span>
+    <span class="marquee-item">Sustentabilidade</span>
+    <span class="marquee-item accent">Biotecnologia</span>
+    <span class="marquee-item">Pele Saudável</span>
+    <span class="marquee-item accent">Skincare Botânico</span>
+    <span class="marquee-item">Ingredientes Naturais</span>
+    <span class="marquee-item accent">Cruelty Free</span>
+    <span class="marquee-item">Dermatologicamente Testado</span>
+    <span class="marquee-item accent">Alta Performance</span>
+    <span class="marquee-item">Sustentabilidade</span>
+    <span class="marquee-item accent">Biotecnologia</span>
+    <span class="marquee-item">Pele Saudável</span>
+  </div>
+</div>
+
+<!-- PRODUCTS -->
+<section class="products" id="produtos">
+  <div class="section-header">
+    <div>
+      <div class="section-tag">Mais Vendidos</div>
+      <h2 class="section-title">Produtos em <em>destaque</em></h2>
+    </div>
+    <a href="#" class="see-all">Ver todos →</a>
+  </div>
+  <div class="products-grid">
+    <div class="product-card fade-up">
+      <div class="product-img">
+        <div class="product-img-inner">
+          <div class="product-bottle p1">Sérum<br>Vitamina C</div>
+        </div>
+        <span class="product-tag new">Novo</span>
+        <button class="product-wishlist">♡</button>
+        <button class="product-add">Adicionar ao Carrinho</button>
+      </div>
+      <div class="product-brand">Sève Botânica</div>
+      <div class="product-name">Sérum Vitamina C + Niacinamida</div>
+      <div class="product-desc">Ilumina, uniformiza e protege com vitamina C estabilizada 15%</div>
+      <div class="product-footer">
+        <div class="product-price">R$ 189,00</div>
+        <div class="product-stars">★★★★★ (142)</div>
+      </div>
+    </div>
+    <div class="product-card fade-up">
+      <div class="product-img">
+        <div class="product-img-inner">
+          <div class="product-bottle p2">Hidratante<br>Facial</div>
+        </div>
+        <span class="product-tag sale">-20%</span>
+        <button class="product-wishlist">♡</button>
+        <button class="product-add">Adicionar ao Carrinho</button>
+      </div>
+      <div class="product-brand">Sève Botânica</div>
+      <div class="product-name">Creme Hidratante Barrier Repair</div>
+      <div class="product-desc">Restaura a barreira cutânea com ceramidas e extrato de aveia</div>
+      <div class="product-footer">
+        <div class="product-price"><span class="old">R$ 159</span>R$ 127,00</div>
+        <div class="product-stars">★★★★★ (98)</div>
+      </div>
+    </div>
+    <div class="product-card fade-up">
+      <div class="product-img">
+        <div class="product-img-inner">
+          <div class="product-bottle p3">Tônico<br>AHA BHA</div>
+        </div>
+        <button class="product-wishlist">♡</button>
+        <button class="product-add">Adicionar ao Carrinho</button>
+      </div>
+      <div class="product-brand">Sève Botânica</div>
+      <div class="product-name">Tônico Esfoliante AHA+BHA</div>
+      <div class="product-desc">Esfoliação química suave para pele renovada e textura uniforme</div>
+      <div class="product-footer">
+        <div class="product-price">R$ 139,00</div>
+        <div class="product-stars">★★★★☆ (76)</div>
+      </div>
+    </div>
+    <div class="product-card fade-up">
+      <div class="product-img">
+        <div class="product-img-inner">
+          <div class="product-bottle p4">Óleo<br>Facial</div>
+        </div>
+        <span class="product-tag new">Lançamento</span>
+        <button class="product-wishlist">♡</button>
+        <button class="product-add">Adicionar ao Carrinho</button>
+      </div>
+      <div class="product-brand">Sève Botânica</div>
+      <div class="product-name">Óleo Facial Squalane + Roseira</div>
+      <div class="product-desc">Nutrição profunda sem oleosidade com squalane vegetal puro</div>
+      <div class="product-footer">
+        <div class="product-price">R$ 219,00</div>
+        <div class="product-stars">★★★★★ (54)</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- RITUAL -->
+<section class="ritual" id="ritual">
+  <div class="ritual-visual">
+    <div class="ritual-circle">
+      <div class="ritual-circle-text">
+        O Ritual<br>Sève
+        <span>passo a passo</span>
+      </div>
+    </div>
+  </div>
+  <div class="ritual-content">
+    <div class="section-tag">Como usar</div>
+    <h2 class="section-title">O ritual de<br><em>4 passos</em></h2>
+    <div class="ritual-steps">
+      <div class="ritual-step fade-up">
+        <div class="step-num">01</div>
+        <div>
+          <div class="step-title">Limpeza</div>
+          <div class="step-desc">Comece com pele limpa. Use o gel de limpeza facial pela manhã e à noite para remover impurezas sem agredir a barreira cutânea.</div>
+        </div>
+      </div>
+      <div class="ritual-step fade-up">
+        <div class="step-num">02</div>
+        <div>
+          <div class="step-title">Tônico</div>
+          <div class="step-desc">Aplique o tônico com um disco de algodão ou nas mãos. Prepara a pele para absorver melhor os próximos produtos.</div>
+        </div>
+      </div>
+      <div class="ritual-step fade-up">
+        <div class="step-num">03</div>
+        <div>
+          <div class="step-title">Sérum</div>
+          <div class="step-desc">O sérum concentrado age nos alvos específicos: manchas, rugas, hidratação intensa. Aplique de 3 a 4 gotas pressionando suavemente.</div>
+        </div>
+      </div>
+      <div class="ritual-step fade-up">
+        <div class="step-num">04</div>
+        <div>
+          <div class="step-title">Hidratante + FPS</div>
+          <div class="step-desc">Finalize com o creme hidratante para selar a hidratação. Pela manhã, adicione protetor solar sobre o hidratante.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- INGREDIENTS -->
+<section class="ingredients" id="ingredientes">
+  <div class="section-tag">Formulação</div>
+  <h2 class="section-title">Ingredientes que<br><em>fazem diferença</em></h2>
+  <div class="ing-grid">
+    <div class="ing-card fade-up">
+      <div class="ing-icon">🌿</div>
+      <div class="ing-name">Extrato de Aloe Vera</div>
+      <p class="ing-desc">Hidratação imediata e profunda. Calmante natural que reduz vermelhidões e repara a pele estressada com eficácia comprovada.</p>
+    </div>
+    <div class="ing-card fade-up">
+      <div class="ing-icon">✨</div>
+      <div class="ing-name">Vitamina C Estabilizada</div>
+      <p class="ing-desc">Antioxidante poderoso que inibe a produção de melanina, clareia manchas e estimula o colágeno para pele mais firme e luminosa.</p>
+    </div>
+    <div class="ing-card fade-up">
+      <div class="ing-icon">💧</div>
+      <div class="ing-name">Ácido Hialurônico</div>
+      <p class="ing-desc">Retém até 1000x seu peso em água. Age em múltiplas camadas da pele para hidratação duradoura e efeito volumizador natural.</p>
+    </div>
+  </div>
+</section>
+
+<!-- REVIEWS -->
+<section class="reviews" id="reviews">
+  <div class="section-tag">Depoimentos</div>
+  <h2 class="section-title">O que nossas<br><em>clientes dizem</em></h2>
+  <div class="reviews-grid">
+    <div class="review-card fade-up">
+      <div class="review-stars">★★★★★</div>
+      <p class="review-text">"Uso o sérum de vitamina C há 3 meses e minhas manchas clareararam muito. A textura é leve, absorve rápido e não irrita. Produto sensacional."</p>
+      <div class="review-author">
+        <div class="author-av av1">L</div>
+        <div>
+          <div class="author-name-r">Larissa M.</div>
+          <div class="author-prod">Sérum Vitamina C</div>
+          <div class="review-verified">✓ Compra verificada</div>
+        </div>
+      </div>
+    </div>
+    <div class="review-card fade-up">
+      <div class="review-stars">★★★★★</div>
+      <p class="review-text">"Tenho pele sensível e já desisti de muitos produtos. O hidratante da Sève foi o único que não irritou e ainda deixou minha pele completamente transformada."</p>
+      <div class="review-author">
+        <div class="author-av av2">F</div>
+        <div>
+          <div class="author-name-r">Fernanda K.</div>
+          <div class="author-prod">Barrier Repair Cream</div>
+          <div class="review-verified">✓ Compra verificada</div>
+        </div>
+      </div>
+    </div>
+    <div class="review-card fade-up">
+      <div class="review-stars">★★★★★</div>
+      <p class="review-text">"O tônico AHA/BHA mudou a textura da minha pele em 2 semanas. Poros menores, pele mais uniforme e aquele glow natural que eu não conseguia com nenhum outro produto."</p>
+      <div class="review-author">
+        <div class="author-av av3">B</div>
+        <div>
+          <div class="author-name-r">Beatriz S.</div>
+          <div class="author-prod">Tônico AHA+BHA</div>
+          <div class="review-verified">✓ Compra verificada</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- NEWSLETTER -->
+<section class="newsletter">
+  <div class="nl-left">
+    <div class="section-tag">Comunidade Sève</div>
+    <h2 class="nl-title">Cuide da sua pele<br>com <em>inteligência.</em></h2>
+    <p class="nl-desc">Receba guias de skincare, lançamentos exclusivos e 15% off na sua primeira compra diretamente no seu e-mail.</p>
+    <div class="nl-perks">
+      <div class="perk">15% de desconto na primeira compra</div>
+      <div class="perk">Guias de skincare personalizados</div>
+      <div class="perk">Acesso antecipado a lançamentos</div>
+    </div>
+  </div>
+  <div class="nl-right">
+    <div class="nl-form">
+      <input type="text" class="nl-input" placeholder="Seu nome">
+      <input type="email" class="nl-input" placeholder="Seu melhor e-mail">
+      <button class="nl-btn">Quero meu desconto</button>
+      <p class="nl-disclaimer">Sem spam. Cancele quando quiser. Seus dados são protegidos.</p>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-top">
+    <div class="footer-brand">
+      <a href="#" class="logo" style="color:#fafaf7">Sève <span style="color:#7a9e7e;font-style:italic">Botânica</span></a>
+      <p>Skincare de alta performance formulado com ingredientes botânicos selecionados. Beleza que respeita você e o planeta.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Produtos</h4>
+      <ul>
+        <li><a href="#">Séruns</a></li>
+        <li><a href="#">Hidratantes</a></li>
+        <li><a href="#">Tônicos</a></li>
+        <li><a href="#">Óleos Faciais</a></li>
+        <li><a href="#">Kits</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Empresa</h4>
+      <ul>
+        <li><a href="#">Sobre nós</a></li>
+        <li><a href="#">Sustentabilidade</a></li>
+        <li><a href="#">Ingredientes</a></li>
+        <li><a href="#">Blog</a></li>
+        <li><a href="#">Imprensa</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Suporte</h4>
+      <ul>
+        <li><a href="#">Meu pedido</a></li>
+        <li><a href="#">Trocas e devoluções</a></li>
+        <li><a href="#">Frete</a></li>
+        <li><a href="#">FAQ</a></li>
+        <li><a href="#">Contato</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="footer-copy">© 2025 Sève Botânica · CNPJ 00.000.000/0001-00 · Todos os direitos reservados</div>
+    <div class="footer-pay">
+      <span>VISA</span><span>MASTER</span><span>PIX</span><span>BOLETO</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // FADE IN
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('visible'); });
+  },{threshold:0.12});
+  document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+  // CART
+  let cartCount = 3;
+  document.querySelectorAll('.product-add').forEach(btn => {
+    btn.addEventListener('click', () => {
+      cartCount++;
+      document.querySelector('.cart-badge').textContent = cartCount;
+      btn.textContent = '✓ Adicionado!';
+      btn.style.background = 'var(--sage)';
+      setTimeout(() => {
+        btn.textContent = 'Adicionar ao Carrinho';
+        btn.style.background = 'var(--forest)';
+      }, 2000);
+    });
+  });
+
+  // WISHLIST
+  document.querySelectorAll('.product-wishlist').forEach(btn => {
+    btn.addEventListener('click', () => {
+      btn.textContent = btn.textContent.trim() === '♡' ? '♥' : '♡';
+      btn.style.color = btn.textContent.trim() === '♥' ? '#c0392b' : '';
+    });
+  });
+</script>
+</body>
+</html>
